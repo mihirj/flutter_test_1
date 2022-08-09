@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_1/validator.dart';
+import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -44,7 +45,11 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  _key.currentState?.validate();
+                  if (_key.currentState?.validate() == true) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const HomeScreen(),
+                    ));
+                  }
                 },
                 child: const Text('Login'),
               ),
